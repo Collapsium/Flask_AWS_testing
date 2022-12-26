@@ -1,0 +1,86 @@
+{% extends "public/templates/public_template.html"%}
+
+{% import "macros/input_macro.html" as im %}
+
+{% block title %} Data {% endblock %}
+
+{% block header %}
+<header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
+          <li><a href="/data" class="nav-link px-2 text-secondary">Data</a></li>
+        </ul>
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+{% block main %}
+    <h4>variable dato: {{ dato }} </h4>
+
+    <hr>
+
+    <h5>Loop throught list</h5>
+    <ul>
+        {% for x in arr_data %}
+        <li>{{ loop.index }}: {{ x }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h5>Loop throught dictionary</h5>
+    <ul>
+        {% for k,v in dict_data.items() %}
+        <li>
+            {{ k }}: {{ v }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h5>Loop throught dictionary keys</h5>
+        <ul>
+            {% for k in dict_data.keys() %}
+            <li>
+                {{ k }}
+            </li>
+            {% endfor %}
+        </ul>
+
+    <hr>
+
+    <h5>Access class attributes</h5>
+        <p> {{ my_clase_epica.arg }}</p>
+
+    <hr>
+
+    <h5>Call class method</h5>
+    <p>{{ my_clase_epica.test()}}</p>
+
+    <hr>
+    <h5>Ifs</h5>
+    {% if dato == "amongus" %}
+    <p>!!!!!!</p>
+    {% else %}
+    <p>????</p>
+    {% endif %}
+
+    <hr>
+
+    <h5>Template filters</h5>
+    <p> {{ dato|reverse }}</p>
+    <!-- Para añadir custom template filters, usar @app.template_filter() (en views.py)-->
+
+    <h5>Macros</h5>
+    {{ im.input(label="Nombre", name="nombre", id="nombre", placeholder="Ingresa nombre" )}}
+
+{% endblock %}
+
