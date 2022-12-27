@@ -1,0 +1,16 @@
+{% extends "public/templates/public_template.html" %}
+{% import "macros/header_macro.html" as m_header %}
+{% import "macros/card_macro.html" as m_card %}
+
+
+{% block title %} Recomendations {% endblock %}
+
+{% block header %}
+    {{ m_header.header(nombre="recomendaciones") }}
+{% endblock %}
+
+{% block main %}
+
+    {{ m_card.card(id=1 , nombre="cristian", link="esto es un link", descpricion="esta es una descripcion") }}
+
+{% endblock %}

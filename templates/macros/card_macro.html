@@ -1,0 +1,25 @@
+
+{% macro card(id , nombre="", link="", descpricion="")  -%}
+
+<html lang="en">
+    <body>
+    <div class="d-flex justify-content-center">
+        <div class=" card text-center d-flex justify-content-center " style="width: 29rem">
+          <div class="card-header ">
+            #id
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ nombre }}</h5>
+            <a href="#" class="btn btn-primary">{{ link }}</a>
+            <p class="card-text">{{ descpricion }}</p>
+          </div>
+          <div class="card-footer text-muted">
+            Date?
+          </div>
+        </div>
+    </div>
+
+    </body>
+</html>
+
+{% endmacro %}

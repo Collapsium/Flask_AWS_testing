@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <h1 style="color: purple"> Index</h1>
-  </body>
-</html>
+<!-- Cada vez que hacemos un render de index, traerá lo que pusimos en public_template-->
+{% extends "public/templates/public_template.html" %}
+{% import "macros/header_macro.html" as m_header %}
+
+<!-- llenamos los bloques -->
+
+{% block title %} Index {% endblock %}
+
+<!-- bloque con info personalizada-->
+{% block header %}
+    {{ m_header.header(nombre="inicio") }}
+{% endblock %}
+
+
