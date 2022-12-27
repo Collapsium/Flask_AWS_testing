@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, request, redirect
 
 @app.route('/')
 def index():  #Funcion que anda cuando se está en "/"
@@ -39,3 +39,19 @@ def data():
 @app.route("/recommendations")
 def recommendations():
     return render_template('/public/recommendations.html')
+
+@app.route("/add" ,methods=["GET", "POST"]) #Get está definido por defecto
+def add():
+
+    if request.method == "POST":
+        r = request.form
+
+        #Sacado de names en add.html
+        username = r["username"]
+        url = r["url"]
+        description = r["description"]
+        print(url)
+
+        return redirect(request.url)
+
+    return render_template('/public/add.html')

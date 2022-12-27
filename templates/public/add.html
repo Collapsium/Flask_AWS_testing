@@ -1,0 +1,44 @@
+<!-- Cada vez que hacemos un render de index, traerá lo que pusimos en public_template-->
+{% extends "public/templates/public_template.html" %}
+{% import "macros/header_macro.html" as m_header %}
+
+<!-- llenamos los bloques -->
+
+{% block title %} Index {% endblock %}
+
+<!-- bloque con info personalizada-->
+{% block header %}
+    {{ m_header.header(nombre="add") }}
+{% endblock %}
+
+{% block main %}
+<div class="container d-flex justify-content-center "  style="width:30rem">
+    <div class ="row ">
+        <div class="col text-center  my-3">
+            <h1> Añadir</h1>
+        </div>
+        <form action="/add" method="POST">
+
+            <div class="form-group">
+                <label>Username</label>
+                <input class="form-control" type="text" name="username">
+            </div>
+
+            <div class="form-group">
+                <label>Link</label>
+                <input class="form-control" type="url" name="url">
+            </div>
+
+            <div class="form-group">
+                <label>Descripción</label>
+                <input class="form-control" type="text" name="description">
+            </div>
+            <div class = "text-center py-2">
+                <button type="submit" class="btn btn-success "> Añadir </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

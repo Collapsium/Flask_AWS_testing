@@ -6,17 +6,26 @@
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             {% if nombre == "inicio" %}
-              <li><a href="/" class="nav-link px-5 text-white">Inicio</a></li>
-              <li><a href="/recommendations" class="nav-link px-2 text-secondary">recomendaciones</a></li>
-            {% elif nombre == "recomendaciones" %}
               <li><a href="/" class="nav-link px-5 text-secondary">Inicio</a></li>
               <li><a href="/recommendations" class="nav-link px-2 text-white">recomendaciones</a></li>
+            {% elif nombre == "recomendaciones" %}
+              <li><a href="/" class="nav-link px-5 text-white">Inicio</a></li>
+              <li><a href="/recommendations" class="nav-link px-2 text-secondary">recomendaciones</a></li>
+            {% else %}
+              <li><a href="/" class="nav-link px-5 text-white">Inicio</a></li>
+              <li><a href="/recommendations" class="nav-link px-2 text-white">recomendaciones</a></li>
+
             {% endif %}
         </ul>
-
+        {% if nombre == "add" %}
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Añadir</button>
+          <button type="button" class="btn btn-outline-light me-2" disabled >Añadir</button>
+        {% else %}
+        <div class="text-end">
+          <a href="/add" class="btn btn-outline-light me-2">Añadir</a>
+
         </div>
+        {% endif %}
       </div>
     </div>
   </header>
