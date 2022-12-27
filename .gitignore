@@ -3,8 +3,6 @@ venv/Lib
 venv
 .env
 
-#itself
-.gitignore
 
 #idea
 .idea
