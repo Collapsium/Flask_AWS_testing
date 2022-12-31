@@ -9,7 +9,9 @@
 {% endblock %}
 
 {% block main %}
+     {% for x in data %}
+       {{ m_card.card(id=x[0] , nombre=x[1], link=x[2], descpricion=x[3]) }}
+     {% endfor %}
 
-    {{ m_card.card(id=1 , nombre="cristian", link="esto es un link", descpricion="esta es una descripcion") }}
 
 {% endblock %}

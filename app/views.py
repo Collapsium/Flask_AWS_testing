@@ -39,7 +39,12 @@ def data():
 
 @app.route("/recommendations")
 def recommendations():
-    return render_template('/public/recommendations.html')
+    #pasarle la bd?
+
+    data = connection.getRecommendations()
+    return render_template('/public/recommendations.html',
+                           data =   data
+                           )
 
 @app.route("/add" ,methods=["GET", "POST"]) #Get está definido por defecto
 def add():
@@ -51,9 +56,9 @@ def add():
         username = r["username"]
         url = r["url"]
         description = r["description"]
-        print(url)
 
-        return redirect(request.url)
+        connection.addRecommendation([username,url,description])
 
     return render_template('/public/add.html',
-                           connection =connection)
+                           connection =connection
+                           )
