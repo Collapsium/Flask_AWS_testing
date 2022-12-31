@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template, request, redirect
+from rds import connection
 
 @app.route('/')
 def index():  #Funcion que anda cuando se está en "/"
@@ -54,4 +55,5 @@ def add():
 
         return redirect(request.url)
 
-    return render_template('/public/add.html')
+    return render_template('/public/add.html',
+                           connection =connection)

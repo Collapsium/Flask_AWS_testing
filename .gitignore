@@ -3,6 +3,7 @@ venv/Lib
 venv
 .env
 
+rds
 
 #idea
 .idea
